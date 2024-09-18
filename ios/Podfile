@@ -35,6 +35,8 @@ install! 'cocoapods',
 prepare_react_native_project!
 
 target 'parselyreactnativeintegration' do
+  pod 'ParselyAnalytics', '~> 0.2.4'
+
   use_expo_modules!
   config = use_native_modules!
 

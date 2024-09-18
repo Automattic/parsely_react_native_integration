@@ -1,4 +1,5 @@
 import Foundation
+import ParselyAnalytics
 
 @objc(ParselyNativeModule)
 class ParselyNativeModule: NSObject {
