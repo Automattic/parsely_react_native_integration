@@ -11,7 +11,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		3FA709032C9A589C008E4F72 /* ParselyNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA709022C9A5838008E4F72 /* ParselyNativeModule.m */; };
+		3FA709032C9A589C008E4F72 /* ParselyNativeModuleBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA709022C9A5838008E4F72 /* ParselyNativeModuleBridge.m */; };
+		3FA709072C9A5CD0008E4F72 /* ParselyNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA709062C9A5CD0008E4F72 /* ParselyNativeModule.swift */; };
 		8742D80A2B61414D9DE4B286 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A9FE478A5450D87CFCA4F /* noop-file.swift */; };
 		96905EF65AED1B983A6B3ABC /* libPods-parselyreactnativeintegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-parselyreactnativeintegration.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
@@ -27,8 +28,8 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = parselyreactnativeintegration/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = parselyreactnativeintegration/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = parselyreactnativeintegration/main.m; sourceTree = "<group>"; };
-		3FA709012C9A57CD008E4F72 /* ParselyNativeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParselyNativeModule.h; sourceTree = "<group>"; };
-		3FA709022C9A5838008E4F72 /* ParselyNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParselyNativeModule.m; sourceTree = "<group>"; };
+		3FA709022C9A5838008E4F72 /* ParselyNativeModuleBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParselyNativeModuleBridge.m; sourceTree = "<group>"; };
+		3FA709062C9A5CD0008E4F72 /* ParselyNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParselyNativeModule.swift; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-parselyreactnativeintegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-parselyreactnativeintegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-parselyreactnativeintegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parselyreactnativeintegration.debug.xcconfig"; path = "Target Support Files/Pods-parselyreactnativeintegration/Pods-parselyreactnativeintegration.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-parselyreactnativeintegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parselyreactnativeintegration.release.xcconfig"; path = "Target Support Files/Pods-parselyreactnativeintegration/Pods-parselyreactnativeintegration.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +82,8 @@
 		3FA709002C9A57A7008E4F72 /* Parsely-Native-Module */ = {
 			isa = PBXGroup;
 			children = (
-				3FA709012C9A57CD008E4F72 /* ParselyNativeModule.h */,
-				3FA709022C9A5838008E4F72 /* ParselyNativeModule.m */,
+				3FA709022C9A5838008E4F72 /* ParselyNativeModuleBridge.m */,
+				3FA709062C9A5CD0008E4F72 /* ParselyNativeModule.swift */,
 			);
 			path = "Parsely-Native-Module";
 			sourceTree = "<group>";
@@ -330,11 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FA709032C9A589C008E4F72 /* ParselyNativeModule.m in Sources */,
+				3FA709032C9A589C008E4F72 /* ParselyNativeModuleBridge.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
 				8742D80A2B61414D9DE4B286 /* noop-file.swift in Sources */,
+				3FA709072C9A5CD0008E4F72 /* ParselyNativeModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
