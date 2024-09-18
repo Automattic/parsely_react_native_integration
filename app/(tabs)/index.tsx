@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, NativeModules } from 'react-native';
+import { Image, StyleSheet, Platform, NativeModules, Button } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -8,6 +8,10 @@ import { ThemedView } from '@/components/ThemedView';
 const { ParselyNativeModule } = NativeModules;
 
 export default function HomeScreen() {
+  const onPress = () => {
+    ParselyNativeModule.dummyPrint("test input");
+  };
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -47,6 +51,9 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <Button title="Test Parsely native module integration" onPress={onPress}/>
       </ThemedView>
     </ParallaxScrollView>
   );
