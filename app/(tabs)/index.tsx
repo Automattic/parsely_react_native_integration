@@ -8,8 +8,16 @@ import { ThemedView } from '@/components/ThemedView';
 const { ParselyNativeModule } = NativeModules;
 
 export default function HomeScreen() {
-  const onPress = () => {
-    ParselyNativeModule.dummyPrint("test input");
+  const onPressStart = () => {
+    ParselyNativeModule.startEngagementWithURL("https://parsely.com/not-real");
+  };
+
+  const onPressTrack = () => {
+    ParselyNativeModule.trackPageViewWithURL("http://parsely.com/a-sample-page");
+  }
+
+  const onPressStop = () => {
+    ParselyNativeModule.stopEngagement();
   };
 
   return (
@@ -53,7 +61,9 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <Button title="Test Parsely native module integration" onPress={onPress}/>
+        <Button title="🟢 Start Parsely" onPress={onPressStart} />
+        <Button title="ℹ️ Track Screen" onPress={onPressTrack} />
+        <Button title="🛑 Stop Parsely" onPress={onPressStop} />
       </ThemedView>
     </ParallaxScrollView>
   );
