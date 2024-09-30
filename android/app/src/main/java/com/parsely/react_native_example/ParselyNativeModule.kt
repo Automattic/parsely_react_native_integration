@@ -16,14 +16,17 @@ class ParselyNativeModule(reactContext: ReactApplicationContext) : ReactContextB
         Log.d("ParselyNativeModule", "Stub for configuration method. Input: $siteId")
     }
 
+    @ReactMethod
     fun startEngagementWithURL(urlString: String) {
         Log.d("ParselyNativeModule", "Stub for start engagement method. Input: $urlString")
     }
 
+    @ReactMethod
     fun trackPageViewWithURL(urlString: String) {
         Log.d("ParselyNativeModule", "Stub for track page view method. Input: $urlString")
     }
 
+    @ReactMethod
     fun stopEngagement() {
         Log.d("ParselyNativeModule", "Stub for stop method")
     }
